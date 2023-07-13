@@ -43,6 +43,8 @@ gem "bootsnap", require: false
 
 gem "dotenv-rails"
 
+gem 'rspec-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
