@@ -12,10 +12,6 @@ class SpellsController < ApplicationController
     render json: @spell, status: :ok
   end
 
-  # GET /spells/1/edit
-  def edit
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_spell

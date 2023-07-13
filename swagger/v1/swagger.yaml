@@ -1,0 +1,35 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/spells":
+    get:
+      summary: Lists all spells
+      tags:
+      - spells
+      description: Returns all spells
+      responses:
+        '200':
+          description: Successful
+  "/spells/{id}":
+    get:
+      summary: Gets spell by ID
+      tags:
+      - spells
+      description: Retrieves a spell by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
