@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Storm Lord",
+      "pips": "7",
+      "school": "Storm",
+      "accuracy": 70,
+      "damage": 690
+    },
+    {
+      "name": "Gobbler",
+      "pips": "3",
+      "school": "Myth",
+      "accuracy": 80,
+      "damage": 310
+    }
+]  
