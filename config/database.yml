@@ -4,7 +4,7 @@ default: &default
   host: localhost
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  database: your_app_name_development
+  database: bartleby
 
 development:
   <<: *default
@@ -15,11 +15,11 @@ development:
 
 test:
   <<: *default
-  database: your_app_name_test
+  database: bartleby_test
 
 production:
   <<: *default
-  database: your_app_name_production
-  host: your_production_host
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: bartleby_prod
+  host: your_production_host # TODO: Change this
+  username: <%= ENV['DATABASE_USERNAME_PROD'] %>
+  password: <%= ENV['DATABASE_PASSWORD_PROD'] %>
