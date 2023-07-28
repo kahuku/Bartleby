@@ -57,6 +57,8 @@ gem 'rubocop-rspec'
 
 gem 'rubocop-rails'
 
+gem 'byebug'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
