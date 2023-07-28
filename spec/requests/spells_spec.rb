@@ -2,6 +2,8 @@ require 'swagger_helper'
 require 'rails_helper'
 
 describe 'Spells API' do
+  include Support::RequestHelpers
+
   path '/spells' do
     get 'Lists all spells' do
       produces 'application/json'
@@ -14,9 +16,42 @@ describe 'Spells API' do
 
         run_test! do |response|
           expect(response.code).to eq('200')
-          json_response = JSON.parse(response.body)
-          expect(json_response).to be_an(Array)
-          expect(json_response.length).to eq(5)
+          expect(response_body.length).to eq(5)
+        end
+      end
+    end
+
+    post 'Creates a spell' do
+      consumes 'application/json'
+      produces 'application/json'
+      tags 'spells'
+      description 'Creates a spell'
+      parameter name: :spell, in: :body, schema: {
+        type: :object,
+        properties: {
+          name: { type: :string },
+          pips: { type: :integer },
+          school: { type: :string },
+          accuracy: { type: :integer },
+          damage: { type: :integer }
+        },
+        required: %w[name pips school accuracy damage]
+      }
+      response '201', 'Created' do
+        let(:spell) { build(:spell) }
+
+        run_test! do |response|
+          expect(response.code).to eq('201')
+          expect(response_body['name']).to eq(spell.name)
+        end
+      end
+
+      response '422', 'Unprocessable Entity' do
+        let(:spell) { build(:spell, name: nil) }
+
+        run_test! do |response|
+          expect(response.code).to eq('422')
+          expect(response_body['name']).to include("can't be blank")
         end
       end
     end
@@ -34,9 +69,8 @@ describe 'Spells API' do
 
         run_test! do |response|
           expect(response.code).to eq('200')
-          json_response = JSON.parse(response.body)
-          expect(json_response['name']).to eq(spell.name)
-          expect(json_response['damage']).to eq(spell.damage)
+          expect(response_body['name']).to eq(spell.name)
+          expect(response_body['damage']).to eq(spell.damage)
         end
       end
     end

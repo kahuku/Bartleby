@@ -14,11 +14,19 @@ RSpec.describe SpellsController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a successful response' do
-      # Replace :id with a valid spell ID
       spell = create(:spell)
       get :show, params: { id: spell.id }
       expect(response).to be_successful
       expect(response_body['id']).to eq(spell.id)
+    end
+  end
+
+  describe 'POST #create' do
+    it 'returns a successful response' do
+      spell_attributes = attributes_for(:spell)
+      post :create, params: { spell: spell_attributes }
+      expect(response).to be_successful
+      expect(response_body['name']).to eq(spell_attributes[:name])
     end
   end
 end

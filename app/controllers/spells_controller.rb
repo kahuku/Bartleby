@@ -12,6 +12,16 @@ class SpellsController < ApplicationController
     render json: @spell, status: :ok
   end
 
+  # POST /spells
+  def create
+    @spell = Spell.new(spell_params)
+    if @spell.save
+      render json: @spell, status: :created
+    else
+      render json: @spell.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
