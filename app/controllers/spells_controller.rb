@@ -1,5 +1,5 @@
 class SpellsController < ApplicationController
-  before_action :set_spell, only: %i[ show edit update destroy ]
+  before_action :set_spell, only: %i[show edit update destroy]
 
   # GET /spells or /spells.json
   def index
@@ -13,13 +13,14 @@ class SpellsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_spell
-      @spell = Spell.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def spell_params
-      params.require(:spell).permit(:name, :pips, :school, :accuracy, :damage)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_spell
+    @spell = Spell.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def spell_params
+    params.require(:spell).permit(:name, :pips, :school, :accuracy, :damage)
+  end
 end

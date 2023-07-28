@@ -1,1 +1,1 @@
-json.partial! "spells/spell", spell: @spell
+json.partial! 'spells/spell', spell: @spell

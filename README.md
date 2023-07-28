@@ -1,5 +1,22 @@
 # README
 
+### Setup
+
+TODO: Add setup instructions
+
+### Starting development
+
+start postgres
+rails s
+
+### Pushing code
+
+rspec
+rubocop
+push to github
+
+## Default
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

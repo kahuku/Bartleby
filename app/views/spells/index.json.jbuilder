@@ -1,1 +1,1 @@
-json.array! @spells, partial: "spells/spell", as: :spell
+json.array! @spells, partial: 'spells/spell', as: :spell
