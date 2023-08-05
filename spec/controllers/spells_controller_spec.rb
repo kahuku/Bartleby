@@ -39,4 +39,13 @@ RSpec.describe SpellsController, type: :controller do
       expect(response_body['name']).to eq(spell_attributes[:name])
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'returns a successful response' do
+      spell = create(:spell)
+      delete :destroy, params: { id: spell.id }
+      expect(response).to be_successful
+      expect(Spell.count).to eq(0)
+    end
+  end
 end

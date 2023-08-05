@@ -31,6 +31,12 @@ class SpellsController < ApplicationController
     end
   end
 
+  # DELETE /spells/:id
+  def destroy
+    @spell.destroy
+    head :no_content
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

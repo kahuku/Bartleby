@@ -122,5 +122,30 @@ describe 'Spells API' do
         end
       end
     end
+
+    delete 'Deletes a spell' do
+      produces 'application/json'
+      tags 'spells'
+      description 'Deletes a spell'
+      parameter name: :id, in: :path, type: :integer
+      response '204', 'No Content' do
+        let(:spell) { create(:spell) }
+        let(:id) { spell.id }
+
+        run_test! do |response|
+          expect(response.code).to eq('204')
+          expect(Spell.count).to eq(0)
+        end
+      end
+
+      response '404', 'Not Found' do
+        let(:id) { 0 }
+
+        run_test! do |response|
+          expect(response.code).to eq('404')
+          expect(response_body['error']).to include('Couldn\'t find Spell')
+        end
+      end
+    end
   end
 end
