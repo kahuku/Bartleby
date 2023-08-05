@@ -12,4 +12,8 @@ RSpec.describe 'Spell routing', type: :routing do
   it 'routes POST /spells to spells#create' do
     expect(post: '/spells').to route_to('spells#create')
   end
+
+  it 'routes PUT /spells/:id to spells#update' do
+    expect(put: '/spells/1').to route_to('spells#update', id: '1')
+  end
 end

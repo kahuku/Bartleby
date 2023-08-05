@@ -73,6 +73,54 @@ describe 'Spells API' do
           expect(response_body['damage']).to eq(spell.damage)
         end
       end
+
+      response '404', 'Not Found' do
+        let(:id) { 0 }
+
+        run_test! do |response|
+          expect(response.code).to eq('404')
+          expect(response_body['error']).to include('Couldn\'t find Spell')
+        end
+      end
+    end
+
+    put 'Updates a spell' do
+      consumes 'application/json'
+      produces 'application/json'
+      tags 'spells'
+      description 'Updates a spell'
+      parameter name: :id, in: :path, type: :integer
+      parameter name: :spell_params, in: :body, schema: {
+        type: :object,
+        properties: {
+          name: { type: :string },
+          pips: { type: :integer },
+          school: { type: :string },
+          accuracy: { type: :integer },
+          damage: { type: :integer }
+        }
+      }
+      response '200', 'Successful' do
+        let(:spell) { create(:spell) }
+        let(:id) { spell.id }
+        let(:spell_params) { attributes_for(:spell) }
+
+        run_test! do |response|
+          expect(response.code).to eq('200')
+          expect(response_body['name']).to eq(spell_params[:name])
+        end
+      end
+
+      response '422', 'Unprocessable Entity' do
+        let(:spell) { create(:spell) }
+        let(:id) { spell.id }
+        let(:spell_params) { attributes_for(:spell, name: nil) }
+
+        run_test! do |response|
+          expect(response.code).to eq('422')
+          expect(response_body['name']).to include("can't be blank")
+        end
+      end
     end
   end
 end

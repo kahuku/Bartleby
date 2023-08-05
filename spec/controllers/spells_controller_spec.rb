@@ -29,4 +29,14 @@ RSpec.describe SpellsController, type: :controller do
       expect(response_body['name']).to eq(spell_attributes[:name])
     end
   end
+
+  describe 'PUT #update' do
+    it 'returns a successful response' do
+      spell = create(:spell)
+      spell_attributes = attributes_for(:spell)
+      put :update, params: { id: spell.id, spell: spell_attributes }
+      expect(response).to be_successful
+      expect(response_body['name']).to eq(spell_attributes[:name])
+    end
+  end
 end

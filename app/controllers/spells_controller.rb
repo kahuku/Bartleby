@@ -7,7 +7,7 @@ class SpellsController < ApplicationController
     render json: @spells, status: :ok
   end
 
-  # GET /spells/1 or /spells/1.json
+  # GET /spells/:id or /spells/:id
   def show
     render json: @spell, status: :ok
   end
@@ -22,11 +22,22 @@ class SpellsController < ApplicationController
     end
   end
 
+  # PUT /spells/:id
+  def update
+    if @spell.update(spell_params)
+      render json: @spell, status: :ok
+    else
+      render json: @spell.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_spell
     @spell = Spell.find(params[:id])
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { error: e.message }, status: :not_found
   end
 
   # Only allow a list of trusted parameters through.
