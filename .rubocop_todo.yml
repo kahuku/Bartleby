@@ -19,8 +19,7 @@ AllCops:
     
 Metrics/BlockLength:
   Exclude:
-    - 'spec/controllers/spells_controller_spec.rb'
-    - 'spec/requests/spells_spec.rb'
+    - 'spec/**/*'
 
 Style/Documentation:
   Enabled: false

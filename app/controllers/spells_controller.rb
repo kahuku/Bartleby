@@ -1,13 +1,13 @@
 class SpellsController < ApplicationController
   before_action :set_spell, only: %i[show edit update destroy]
 
-  # GET /spells or /spells.json
+  # GET /spells
   def index
     @spells = Spell.all
     render json: @spells, status: :ok
   end
 
-  # GET /spells/:id or /spells/:id
+  # GET /spells/:id
   def show
     render json: @spell, status: :ok
   end
