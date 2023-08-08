@@ -7,6 +7,21 @@ class CharmsController < ApplicationController
     render json: @charms, status: :ok
   end
 
+  # GET /charms/:id
+  def show
+    render json: @charm, status: :ok
+  end
+
+  # POST /charms
+  def create
+    @charm = Charm.new(charm_params)
+    if @charm.save
+      render json: @charm, status: :created
+    else
+      render json: @charm.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

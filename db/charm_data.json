@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Fireblade",
+        "school": "Fire",
+        "percentage": 35
+    },
+    {
+        "name": "Stormblade",
+        "school": "Storm",
+        "percentage": 35
+    },
+    {
+        "name": "Windstorm",
+        "school": "Storm",
+        "percentage": 25
+    }
+]
