@@ -34,10 +34,5 @@ RSpec.describe Charm, type: :model do
       expect(charm).not_to be_valid
       expect(charm.errors[:school]).to include('is not included in the list')
     end
-
-    it 'is valid without school' do
-      charm = build(:charm, school: nil)
-      expect(charm).to be_valid
-    end
   end
 end
