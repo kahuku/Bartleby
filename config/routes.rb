@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
+
   resources :spells
   resources :charms
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post '/calculate_damage', to: 'attack#calculate_damage'
 end
