@@ -29,4 +29,14 @@ RSpec.describe CharmsController, type: :controller do
       expect(response_body['name']).to eq(charm_attributes[:name])
     end
   end
+
+  describe 'PUT #update' do
+    it 'returns a successful response' do
+      charm = create(:charm)
+      charm_attributes = attributes_for(:charm)
+      put :update, params: { id: charm.id, charm: charm_attributes }
+      expect(response).to be_successful
+      expect(response_body['name']).to eq(charm_attributes[:name])
+    end
+  end
 end

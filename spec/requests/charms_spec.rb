@@ -80,5 +80,42 @@ RSpec.describe 'Charms API', type: :request do
         end
       end
     end
+
+    put 'Updates a charm' do
+      consumes 'application/json'
+      produces 'application/json'
+      tags 'charms'
+      description 'Updates a charm'
+      parameter name: :id, in: :path, type: :integer
+      parameter name: :charm_params, in: :body, schema: {
+        type: :object,
+        properties: {
+          name: { type: :string },
+          school: { type: :string },
+          percentage: { type: :integer }
+        }
+      }
+      response '200', 'Successful' do
+        let(:charm) { create(:charm) }
+        let(:id) { charm.id }
+        let(:charm_params) { attributes_for(:charm) }
+
+        run_test! do |response|
+          expect(response.code).to eq('200')
+          expect(response_body['name']).to eq(charm_params[:name])
+        end
+      end
+
+      response '422', 'Unprocessable Entity' do
+        let(:charm) { create(:charm) }
+        let(:id) { charm.id }
+        let(:charm_params) { attributes_for(:charm, name: nil) }
+
+        run_test! do |response|
+          expect(response.code).to eq('422')
+          expect(response_body['name']).to include("can't be blank")
+        end
+      end
+    end
   end
 end

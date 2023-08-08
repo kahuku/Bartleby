@@ -22,6 +22,15 @@ class CharmsController < ApplicationController
     end
   end
 
+  # PUT /charms/:id
+  def update
+    if @charm.update(charm_params)
+      render json: @charm, status: :ok
+    else
+      render json: @charm.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

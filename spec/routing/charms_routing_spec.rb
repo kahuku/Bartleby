@@ -12,4 +12,8 @@ RSpec.describe 'Charm routing', type: :routing do
   it 'routes POST /charms to charms#create' do
     expect(post: '/charms').to route_to('charms#create')
   end
+
+  it 'routes PUT /charms/:id to charms#update' do
+    expect(put: '/charms/1').to route_to('charms#update', id: '1')
+  end
 end
