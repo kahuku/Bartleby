@@ -16,5 +16,53 @@
         "school": "Storm",
         "percentage": 25,
         "pips": 1
+    },
+    {
+        "name": "Iceblade",
+        "school": "Ice",
+        "percentage": 35,
+        "pips": 0
+    },
+    {
+        "name": "Mythblade",
+        "school": "Myth",
+        "percentage": 35,
+        "pips": 0
+    },
+    {
+        "name": "Lifeblade",
+        "school": "Life",
+        "percentage": 35,
+        "pips": 0
+    },
+    {
+        "name": "Deathblade",
+        "school": "Death",
+        "percentage": 35,
+        "pips": 0
+    },
+    {
+        "name": "Plague",
+        "school": "Death",
+        "percentage": -20,
+        "pips": 1
+    },
+    {
+        "name": "Virulent Plague",
+        "school": "Death",
+        "percentage": -35,
+        "pips": 2
+    },
+    {
+        "name": "Balanceblade",
+        "school": "Balance",
+        "percentage": 25,
+        "pips": 0
+    },
+    {
+        "name": "Bladestorm",
+        "school": "Balance",
+        "percentage": 20,
+        "pips": 0
     }
 ]

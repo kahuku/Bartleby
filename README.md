@@ -1,5 +1,9 @@
 # README
 
+TODO:
+TO ADD: Blades seed data: sun, supercharge, elemental, spirit
+TO ADD: Spells seed data
+
 ### Setup
 
 TODO: Add setup instructions
