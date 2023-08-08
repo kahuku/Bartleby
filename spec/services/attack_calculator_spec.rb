@@ -20,6 +20,10 @@ RSpec.describe AttackCalculator do
       charms = create_list(:charm, 2, percentage: 10)
       opponent_health = 100
       expect(AttackCalculator.new(spell.id, charms.map(&:id), opponent_health).calculate_damage).to eq(12)
+
+      spell = create(:spell, damage: 100)
+      charms = create_list(:charm, 3, percentage: 10)
+      expect(AttackCalculator.new(spell.id, charms.map(&:id), opponent_health).calculate_damage).to eq(133)
     end
   end
 end
