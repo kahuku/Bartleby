@@ -15,6 +15,13 @@ rspec
 rubocop
 push to github
 
+## Reseeding DB
+
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:seed
+
 ## Default
 
 This README would normally document whatever steps are necessary to get the

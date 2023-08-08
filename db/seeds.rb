@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require Rails.root.join('app', 'models', 'spell.rb')
+Spell.destroy_all
+load Rails.root.join('db', 'seeds', 'spells.rb')
+
+Charm.destroy_all
+load Rails.root.join('db', 'seeds', 'charms.rb')

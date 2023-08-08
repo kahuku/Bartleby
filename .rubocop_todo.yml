@@ -13,6 +13,7 @@ AllCops:
     - 'config.ru'
     - 'db/schema.rb'
     - 'Gemfile.lock'
+    - 'lib/tasks/*'
     - 'Rakefile'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
