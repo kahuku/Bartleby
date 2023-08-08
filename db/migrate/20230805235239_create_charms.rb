@@ -4,6 +4,7 @@ class CreateCharms < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :school
       t.integer :percentage
+      t.integer :pips
 
       t.timestamps
     end

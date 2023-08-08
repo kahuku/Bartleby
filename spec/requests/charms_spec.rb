@@ -31,7 +31,8 @@ RSpec.describe 'Charms API', type: :request do
         properties: {
           name: { type: :string },
           school: { type: :string },
-          percentage: { type: :integer }
+          percentage: { type: :integer },
+          pips: { type: :integer }
         },
         required: %w[name percentage]
       }
@@ -92,7 +93,8 @@ RSpec.describe 'Charms API', type: :request do
         properties: {
           name: { type: :string },
           school: { type: :string },
-          percentage: { type: :integer }
+          percentage: { type: :integer },
+          pips: { type: :integer }
         }
       }
       response '200', 'Successful' do

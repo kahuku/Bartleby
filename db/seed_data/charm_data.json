@@ -2,16 +2,19 @@
     {
         "name": "Fireblade",
         "school": "Fire",
-        "percentage": 35
+        "percentage": 35,
+        "pips": 0
     },
     {
         "name": "Stormblade",
         "school": "Storm",
-        "percentage": 35
+        "percentage": 35,
+        "pips": 0
     },
     {
         "name": "Windstorm",
         "school": "Storm",
-        "percentage": 25
+        "percentage": 25,
+        "pips": 1
     }
 ]

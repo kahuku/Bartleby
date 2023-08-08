@@ -48,6 +48,6 @@ class CharmsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def charm_params
-    params.require(:charm).permit(:name, :school, :percentage)
+    params.require(:charm).permit(:name, :school, :percentage, :pips)
   end
 end

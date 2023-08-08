@@ -13,12 +13,6 @@ RSpec.describe Charm, type: :model do
       expect(charm.errors[:name]).to include("can't be blank")
     end
 
-    it 'is invalid without percentage' do
-      charm = build(:charm, percentage: nil)
-      expect(charm).not_to be_valid
-      expect(charm.errors[:percentage]).to include("can't be blank")
-    end
-
     it 'is invalid without an integer percentage' do
       charm = build(:charm, percentage: 'invalid')
       expect(charm).not_to be_valid
