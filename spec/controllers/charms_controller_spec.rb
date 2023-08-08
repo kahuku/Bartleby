@@ -39,4 +39,13 @@ RSpec.describe CharmsController, type: :controller do
       expect(response_body['name']).to eq(charm_attributes[:name])
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'returns a successful response' do
+      charm = create(:charm)
+      delete :destroy, params: { id: charm.id }
+      expect(response).to be_successful
+      expect(Charm.count).to eq(0)
+    end
+  end
 end

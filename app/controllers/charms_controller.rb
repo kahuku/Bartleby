@@ -31,6 +31,12 @@ class CharmsController < ApplicationController
     end
   end
 
+  # DELETE /charms/:id
+  def destroy
+    @charm.destroy
+    head :no_content
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

@@ -117,5 +117,30 @@ RSpec.describe 'Charms API', type: :request do
         end
       end
     end
+
+    delete 'Deletes a charm' do
+      produces 'application/json'
+      tags 'charms'
+      description 'Deletes a charm'
+      parameter name: :id, in: :path, type: :integer
+      response '204', 'Successful' do
+        let(:charm) { create(:charm) }
+        let(:id) { charm.id }
+
+        run_test! do |response|
+          expect(response.code).to eq('204')
+          expect(Charm.count).to eq(0)
+        end
+      end
+
+      response '404', 'Not Found' do
+        let(:id) { 0 }
+
+        run_test! do |response|
+          expect(response.code).to eq('404')
+          expect(response_body['error']).to include('Couldn\'t find Charm')
+        end
+      end
+    end
   end
 end
