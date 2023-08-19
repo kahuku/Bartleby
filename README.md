@@ -3,6 +3,7 @@
 TODO:
 TO ADD: Blades seed data: sun, supercharge, elemental, spirit
 TO ADD: Spells seed data
+Consider using MongoDB?
 
 ### Setup
 
